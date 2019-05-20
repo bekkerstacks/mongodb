@@ -1,5 +1,5 @@
 # mongodb
-MongoDB on Docker (WIP)
+MongoDB on Docker
 
 ## Configuration
 
@@ -16,3 +16,26 @@ MONGODB_PASSWORD
 ```
 
 ## Usage
+
+Build:
+
+```
+$ git clone https://github.com/bekkerstacks/mongodb
+$ docker build -t local-mongodb .
+```
+
+Run:
+
+```
+$ docker run -itd --name mongodb \
+  -e MONGODB_AUTH_ENABLED=true 
+  -e MONGODB_USER=ruan 
+  -e MONGODB_PASSWORD=password \
+  local-mongodb
+```
+
+Connect:
+
+```
+$ mongo --host 127.0.0.1 --port 27017 -u ruan -p password --authenticationDatabase admin
+```
